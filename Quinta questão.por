@@ -1,32 +1,36 @@
 programa {
   funcao inicio() {
-    real numero1, numero2
-    real soma, subtracao, multiplicacao, divisao
-    cadeia operacao
+    inteiro quantidade
+    real preco_unitario, desconto, total_com_desconto, total
 
-    escreva("Digite a operação matemática desejada: ")
-    leia (operacao)
+    escreva("Bem-vindo! Aqui você pode comprar desodorantes.")
+    escreva("\nO preço unitário é R$10.00")
+    escreva("\nSe comprar até 5 unidades, receberá 2% de desconto")
+    escreva("\nSe comprar entre 6 e 10 unidades, receberá 3% de desconto")
+    escreva("\nSe comprar acima de 10 unidades, receberá 5% de desconto")
+    escreva("\nQuantos você deseja? ")
+    leia(quantidade)
 
-    escreva("Agora, digite dois valores para calculá-los: ")
-    leia(numero1, numero2)
+    preco_unitario = 10
+    total = quantidade * preco_unitario
 
-    soma = numero1 + numero2
-    subtracao = numero1 - numero2
-    multiplicacao = numero1 * numero2
-    divisao = numero1 / numero2
+    se (quantidade <= 5) {
+    desconto = (total) * 0.02
+    }
 
-    se (operacao == "soma" ou operacao == "+") {
-      escreva("Resultado da soma: " + soma)
+    se (quantidade > 5 e quantidade <= 10) {
+      desconto = (total) * 0.03
     }
-    se (operacao == "subtração" ou operacao == "-") {
-      escreva("Resultado da subtração: " + subtracao)
+
+    se (quantidade > 10) {
+      desconto = (total) * 0.05
     }
-    se (operacao == "multiplicação" ou operacao == "*") {
-      escreva("Resultado da multiplicação: " + multiplicacao)
-    }
-    se (operacao == "divisão" ou operacao == "/") {
-      escreva("Resultado da divisão: " + divisao)
-    }
+
+    total_com_desconto = total - desconto
+
+    escreva("Total: " + total)
+    escreva("\nDesconto: " + desconto)
+    escreva("\nTotal a pagar: " + total_com_desconto)
 
   }
 }
